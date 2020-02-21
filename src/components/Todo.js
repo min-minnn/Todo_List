@@ -18,9 +18,6 @@ const TodoItem = styled.div`
     border-radius: 4px;
     padding: 7px;
     color: white;
-    margin: auto;
-    font-family: 'Roboto';
-    font-size: 16px;
 
     svg{
         color: #ff476c;
@@ -44,16 +41,16 @@ const TodoItem = styled.div`
 function Todo({todos, onRemove, onToggle}){
     return (
         <TodoItemBlock>
-            {todos.map(Todos =>
+            {todos.map(todo =>
                 <TodoItem
-                    key={Todos.id}
-                    id={Todos.id}
-                    done={Todos.done}
+                    key={todo.id}
+                    id={todo.id}
+                    done={todo.done}
                 >
-                <TextBlodck onClick={()=>onToggle(Todos.id)}>
-                    {Todos.text}
+                <TextBlodck onClick={()=>onToggle(todo.id)}>
+                    {todo.text}
                 </TextBlodck>
-                    <MdClear onClick={()=>onRemove(Todos.id)} />
+                    <MdClear onClick={()=>onRemove(todo.id)} />
                 </TodoItem>
             )}
         </TodoItemBlock>
