@@ -1,6 +1,6 @@
 import React, { useRef, useState } from 'react';
-import Todo from './components/Todo';
-import TodoCreate from './components/TodoCreate';
+import Todo from './Todo';
+import TodoInput from './TodoInput';
 
 function TodoList(){
     const [todos, setTodos] = useState([
@@ -47,7 +47,7 @@ function TodoList(){
     
     return (
         <div>
-            <TodoCreate onCreate={onCreate} />
+            <TodoInput onCreate={onCreate} />
             <Todo todos={todos} onRemove={onRemove} onToggle={onToggle}  />
         </div>
     )

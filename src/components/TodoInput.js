@@ -2,20 +2,19 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import {MdAdd} from 'react-icons/md';
 
-
 const Add = styled.button`
-    font-size: 16px;
     cursor: pointer;
     border: none;
     background: none;
     outline: none;
+
     &:hover {
-    color: #52525a;
+      color: #52525a;
     }
 `;
 
-const TodoInput = styled.input`
-    width: 75%;
+const Input = styled.input`
+    width: 300px;
     border: none;
     margin-top: 1rem;
     border-bottom: 1px solid #ff476c;
@@ -25,10 +24,9 @@ const TodoInput = styled.input`
 
 const TodoAddBlock = styled.div`
     margin-bottom: 1rem;
-    margin-left: 73px;
 `;
 
-function TodoCreate({onCreate, onToggle}){
+function TodoInput({onCreate, onToggle}){
     const [value, setValue] = useState('');
 
         const onChange = e => {
@@ -36,7 +34,7 @@ function TodoCreate({onCreate, onToggle}){
         };
         
         const onClick = () =>{
-            if(value === ""){
+            if(!value){
                 alert('할 일을 입력하세요.');
             }else{
                 onCreate(value);
@@ -46,7 +44,7 @@ function TodoCreate({onCreate, onToggle}){
 
     return (
         <TodoAddBlock>
-            <TodoInput value={value} onChange={onChange} onToggle={onToggle} />
+            <Input value={value} onChange={onChange} onToggle={onToggle} />
             <Add onClick={onClick}>
                 <MdAdd />
             </Add>
@@ -54,4 +52,4 @@ function TodoCreate({onCreate, onToggle}){
     );
 }
 
-export default TodoCreate;
+export default TodoInput;
