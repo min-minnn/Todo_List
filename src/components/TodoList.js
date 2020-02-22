@@ -23,7 +23,7 @@ function TodoList() {
 
   const onCreate = text => {
     const todo = {
-      id: todos[todos.length - 1].id + 1,
+      id: todos.length ? todos[todos.length - 1].id + 1 : 1,
       text,
       done: false,
     };
